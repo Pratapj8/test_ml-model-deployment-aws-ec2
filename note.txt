@@ -1,0 +1,11 @@
+# 1.Clone the repositary 
+
+# 2.create a new environment in system. - conda create -n venv python=3.10
+
+# 3. Activate the environment - conda activate venv
+# 4.Install the requirements.txt - pip install -r requirements.txt 
+# or - pip install scikit-learn flask pandas numpy
+# change with ur repositary. - git remote set-url origin https://github.com/Pratapj8/test_ml-model-deployment-aws-ec2.git
+# verify - git remote -v 
+
+# 5. Run the app  - python app.py

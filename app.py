@@ -11,9 +11,22 @@ def index():
 
 @app.route('/predict',methods=['POST'])
 def predict_placement():
-    cgpa = float(request.form.get('cgpa'))
-    iq = int(request.form.get('iq'))
-    profile_score = int(request.form.get('profile_score'))
+    cgpa = request.form.get('cgpa')
+    iq = request.form.get('iq')
+    profile_score = request.form.get('profile_score')
+
+    error = None
+    if not cgpa or not iq or not profile_score:
+        error = "All fields are required."
+        return render_template('index.html', result=error)
+
+    try:
+        cgpa = float(cgpa)
+        iq = int(iq)
+        profile_score = int(profile_score)
+    except ValueError:
+        error = "Invalid input. Please enter valid numbers."
+        return render_template('index.html', result=error)
 
     # prediction
     result = model.predict(np.array([cgpa,iq,profile_score]).reshape(1,3))

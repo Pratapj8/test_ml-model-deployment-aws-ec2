@@ -1,3 +1,6 @@
 flask
 numpy
 sklearn
+pandas
+
+# pip install scikit-learn
